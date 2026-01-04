@@ -8,7 +8,6 @@ class task_container {
   int max = 1024;  // current max size will change
 
   T* arr = new T[1024];  // array of size T on Heap
-                         // TODO: delete this!!!!
 
   void expand() {  // 2x size of the array
     T* temp = new T[max * 2];

@@ -1,16 +1,26 @@
+#include <iostream>
+#include <string>
+
 #include "structures/task_container.hpp"
 
-int main(int argc, char* argv[]) {
-  /* std::cout << "hello world" << std::endl;
-   task_container<int> test;
-   task_container<int> testy(1);
+struct information {
+  std::string name;
+  int priority;
+};
 
-   std::cout << testy[0] << std::endl;
-   std::cout << testy.at(0) << std::endl;
- */
-  task_container<int> big_test;
-  for (int i = 0; i < 20000; i++) {
-    big_test.add(i);
+int main(int argc, char* argv[]) {
+  // struct information info;
+
+  task_container<struct information> big_test;
+  for (int i = 0; i < 100; i++) {
+    struct information info;
+    info.name = "test";
+    info.priority = 1;
+    big_test.add(info);
+  }
+
+  for (int i = 0; i < 100; i++) {
+    std::cout << big_test[i].name << " : " << big_test[i].priority << std::endl;
   }
 
   return 0;
