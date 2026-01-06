@@ -1,5 +1,5 @@
 CXX = g++
-CXXFLAGS = -Wall -Werror -O2 -g
+CXXFLAGS = -Wall -Werror -O0 -g
 
 SRC_DIR = src
 

@@ -14,8 +14,8 @@ class task_container {
     for (int i = 0; i < curr_size; i++) {
       temp[i] = arr[i];
     }
-    delete[] arr;
-    arr = temp;
+    delete[] this->arr;
+    this->arr = temp;
     max *= 2;
   }
 
@@ -27,11 +27,13 @@ class task_container {
   }
   ~task_container() { delete[] arr; }
 
-  T operator[](const int& idx) {  // at index
+  T operator[](int idx) {  // at index
     return arr[idx];
   }
 
-  T at(const int& idx) {
+  const T operator[](int idx) const { return arr[idx]; }
+
+  T at(int idx) {
     if (idx > curr_size - 1) {
       return idx;
     } else {
@@ -39,7 +41,7 @@ class task_container {
     }
   }  // same as [] but with bound checks
 
-  int size() { return this->curr_size; }
+  int size() const { return this->curr_size; }
 
   void add(const T& elt) {  // make reutrn bool sometime
     if (this->curr_size >= this->max) {
