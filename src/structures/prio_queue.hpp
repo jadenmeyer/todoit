@@ -32,7 +32,6 @@ class prio_queue {
     }
     delete[] this->arr;
     this->arr = temp;
-    delete[] temp;
   }
 
  public:
@@ -42,12 +41,12 @@ class prio_queue {
     this->arr[0] = task;
     this->size++;
   }
-  prio_queue(const task_container<tasks>& arrTask) {
+  prio_queue(task_container<tasks>& arrTask) {
     for (int i = 0; i < arrTask.size(); i++) {
       this->insert(arrTask[i]);
     }
   }
-  void insert(const tasks& task) {
+  void insert(tasks& task) {
     if (this->size >= this->max) {
       this->expand();
     }
@@ -57,6 +56,7 @@ class prio_queue {
     this->size++;
   }
 
+  bool is_empty() const { return this->size > 0 ? false : true; }
   void heapify_insert(int idx) {
     while (idx > 0) {
       int parent = (idx - 1) / 2;
@@ -75,7 +75,7 @@ class prio_queue {
 
     task = this->arr[0];
     this->arr[0] = this->arr[this->size - 1];
-    rebalance(0);
+    this->rebalance(0);
     this->size--;
 
     return task;
@@ -112,7 +112,7 @@ class prio_queue {
       rebalance(largest);
     }
   }
-  ~prio_queue() { delete[] arr; }
+  ~prio_queue() { delete[] this->arr; }
 };
 
 #endif  // !prio_queue

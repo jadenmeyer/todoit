@@ -1,8 +1,7 @@
 #include <iostream>
-#include <ostream>
-#include <random>
 #include <string>
 
+#include "parse/parse.h"
 #include "structures/prio_queue.hpp"
 #include "structures/task_container.hpp"
 
@@ -54,11 +53,9 @@ int main(int argc, char* argv[]) {
     std::cout << big_test[i].name << " : " << big_test[i].priority << std::endl;
   }
 
-  prio_queue queue = prio_queue(big_test);
+  prio_queue queue(big_test);
   std::cout << queue.get_size() << std::endl;
-
-  for (int i = 0; i < 10; i++) {
-    std::cout << queue.extract_max().priority << std::endl;
-  }
+  readFile(queue);
+  printToFile(queue);
   return 0;
 }

@@ -5,7 +5,7 @@ SRC_DIR = src
 
 TARGET = todoit
 
-SRCS = $(SRC_DIR)/main.cpp # $(SRC_DIR)/structures/task_container.hpp
+SRCS = $(SRC_DIR)/main.cpp $(SRC_DIR)/parse/parse.cpp# $(SRC_DIR)/structures/task_container.hpp
 OBJS = $(SRCS:%.cpp=%.o)
 
 all: $(TARGET)

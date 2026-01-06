@@ -10,13 +10,13 @@ class task_container {
   T* arr = new T[1024];  // array of size T on Heap
 
   void expand() {  // 2x size of the array
-    T* temp = new T[max * 2];
+    this->max *= 2;
+    T* temp = new T[max];
     for (int i = 0; i < curr_size; i++) {
       temp[i] = arr[i];
     }
     delete[] this->arr;
     this->arr = temp;
-    max *= 2;
   }
 
  public:
@@ -27,11 +27,11 @@ class task_container {
   }
   ~task_container() { delete[] arr; }
 
-  T operator[](int idx) {  // at index
+  T& operator[](int idx) {  // at index
     return arr[idx];
   }
 
-  const T operator[](int idx) const { return arr[idx]; }
+  T& operator[](int idx) const { return arr[idx]; }
 
   T at(int idx) {
     if (idx > curr_size - 1) {
