@@ -4,3 +4,4 @@
 
 void printToFile(prio_queue& queue);
 void readFile(prio_queue& queue);
+bool fileExists();

@@ -36,7 +36,7 @@ class prio_queue {
 
  public:
   // treat this as a make-heap
-  // prio_queue() = default;
+  prio_queue() = default;
   prio_queue(tasks& task) {
     this->arr[0] = task;
     this->size++;

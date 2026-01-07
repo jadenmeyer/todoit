@@ -28,4 +28,4 @@ $(TARGET)_san: $(SRCS)
 .PHONY : clean
 
 clean:
-	rm $(TARGET) $(OBJS) $(TARGET)_san
+	rm $(TARGET) $(OBJS) $(TARGET)_san *.txt
